@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 /**
+ * 聊天客户端
  * @author: lkx
  * @email: lkx19950811@163.com
  * @date: create in 16:00 2019/10/22

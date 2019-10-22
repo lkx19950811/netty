@@ -7,6 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
+ * 聊天服务器
  * @author: lkx
  * @email: lkx19950811@163.com
  * @date: create in 15:23 2019/10/22
