@@ -1,4 +1,4 @@
-package com.lkx.netty.thirdExample;
+package com.lkx.netty.thirdExampleChat;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;

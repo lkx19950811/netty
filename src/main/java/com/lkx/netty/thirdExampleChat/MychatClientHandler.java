@@ -1,6 +1,5 @@
-package com.lkx.netty.thirdExample;
+package com.lkx.netty.thirdExampleChat;
 
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
