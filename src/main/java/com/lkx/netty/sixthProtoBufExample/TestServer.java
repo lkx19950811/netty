@@ -1,6 +1,5 @@
-package com.lkx.netty.fourExampleHeart;
+package com.lkx.netty.sixthProtoBufExample;
 
-import com.lkx.netty.thirdExampleChat.MyChatServerInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
@@ -10,19 +9,19 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 /**
- * 心跳
+ * RPC通讯编程 Protobuf
  * @author: lkx
  * @email: lkx19950811@163.com
- * @date: create in 17:10 2019/10/23
+ * @date: create in 11:30 2019/10/24
  */
-public class MyServer {
+public class TestServer {
     public static void main(String[] args) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup,workGroup).channel(NioServerSocketChannel.class).handler(new LoggingHandler(LogLevel.INFO))
-                    .childHandler(new MyserverInitializer());
+                    .childHandler(new TestServerInitializer());
             ChannelFuture channelFuture = bootstrap.bind(8899).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
