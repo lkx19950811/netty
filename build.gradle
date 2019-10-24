@@ -1,9 +1,9 @@
-plugins {
-    id 'java'
-}
-
 group 'com.lkx'
 version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'com.google.protobuf'
+
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
@@ -21,6 +21,39 @@ dependencies {
     compile(
             "io.netty:netty-all:4.1.39.Final",
             "com.google.protobuf:protobuf-java:3.10.0",
-            "com.google.protobuf:protobuf-java-util:3.10.0"
+            "com.google.protobuf:protobuf-java-util:3.10.0",
+            "org.apache.thrift:libthrift:0.12.0",
+            "io.grpc:grpc-netty:1.4.0",
+            "io.grpc:grpc-protobuf:1.4.0",
+            "io.grpc:grpc-stub:1.4.0"
     )
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.0'
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.2.0"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0'
+        }
+    }
+
+    generateProtoTasks.generatedFilesBaseDir = "src"
+
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {
+                setOutputSubDir 'java'
+            }
+        }
+    }
 }
