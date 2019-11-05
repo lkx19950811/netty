@@ -57,3 +57,11 @@ protobuf {
         }
     }
 }
+sourceSets {
+    main {
+        proto{
+            srcDir 'src/proto'
+            srcDir 'src/'
+        }
+    }
+}

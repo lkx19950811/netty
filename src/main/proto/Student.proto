@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.lkx.proto;
+
+option java_package = "com.lkx.proto";
+option java_outer_classname = "StudentProto";
+option java_multiple_files = true;
+
+service StudentService{
+    rpc GetRealNameByUserName(MyRequest) returns(MyResponse){
+
+    }
+}
+
+message MyRequest {
+    string userName = 1;
+}
+message MyResponse{
+    string realname = 2;
+}
